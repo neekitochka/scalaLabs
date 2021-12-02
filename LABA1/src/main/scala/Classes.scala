@@ -50,7 +50,6 @@ import scala.jdk.FunctionWrappers.FromJavaObjDoubleConsumer
 
 object Animal {
 
-
   val mamal = Mammal("cat", Meat())
   val bird =  Birds ("parrot", Vegetables())
   val fish = Fish("goldfish", Plants())
@@ -77,22 +76,22 @@ case class Mammal(val name:String, val food:Food) extends Animal
 case class Birds(val name:String, val food:Food) extends Animal
 case class Fish(val name:String, val food:Food) extends Animal
 
-trait Food
+sealed trait Food
+case class Meat() extends Food
+case class Vegetables() extends Food
+case class Plants() extends Food
 
 object Food{
   def apply(food: String): Option[Food]={
     food match {
-      case "meat" => Some( new Meat)
-      case "plants" => Some( new Plants)
-      case "vegetables" => Some( new Vegetables)
+      case "meat" => Some(Meat())
+      case "plants" => Some(Plants())
+      case "vegetables" => Some(Vegetables())
       case _ => None()
     }
   }
 }
 
-case class Meat() extends Food
-case class Vegetables() extends Food
-case class Plants() extends Food
 
 sealed trait Option[A] {
 
@@ -107,9 +106,9 @@ case class None[A]()     extends Option[A] {
 
 object StartClasses {
   def main(args: Array[String]): Unit ={
-    println(Animal.apply("goldfish"))
+    println(Animal.apply("cat"))
     println(Animal.fish.eat(Meat()))
-    println(Animal.knowAnimals("garry"))
+    println(Animal.knowAnimals("cat"))
     println(Food.apply("meat"))
   }
 }
