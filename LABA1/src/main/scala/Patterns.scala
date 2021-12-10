@@ -1,6 +1,6 @@
 package exercise1
 
-import exercise1.PatternMatching.{Paper, Rock, garry}
+import exercise1.PatternMatching.{Paper, Rock, nemo}
 
 import scala.jdk.FunctionWrappers.FromJavaObjDoubleConsumer
 
@@ -24,8 +24,8 @@ object PatternMatching {
     println(PatternMatching.testIsMaxAndMoritz("max"))
     println(PatternMatching.testIsEven(5))
     println(PatternMatching.testWinsA(Paper, Rock))
-    println(PatternMatching.testExtractMammalWeight(garry))
-    println(PatternMatching.testUpdateFood( PatternMatching.Fish("garry", PatternMatching.Vegetables)))
+    println(PatternMatching.testExtractMammalWeight(nemo))
+    println(PatternMatching.testUpdateFood( PatternMatching.Fish("nemo", PatternMatching.Vegetables)))
   }
 
   sealed trait Hand
@@ -44,7 +44,6 @@ object PatternMatching {
   case object Plants     extends Food
 
   sealed trait Animal {
-
     val name: String
     val food: Food
   }
@@ -147,7 +146,7 @@ object PatternMatching {
     }
   }
 
-  var garry = Fish("Garry", Meat)
+  var nemo = Fish("nemo", Meat)
   // примените функцию из пункта (e) здесь, не изменяйте сигнатуру
   def testExtractMammalWeight(animal: Animal): Int = extractMammalWeight(animal)
 

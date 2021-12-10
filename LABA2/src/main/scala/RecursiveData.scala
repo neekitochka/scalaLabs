@@ -25,7 +25,7 @@ object RecursiveData {
   }
 
   // используйте функцию из пункта (a) здесь, не изменяйте сигнатуру
-  def testListIntHead(list: List[Int]): Int = listIntHead(list)
+    def testListIntHead(list: List[Int]): Int = listIntHead(list)
 
   // c) Можно ли изменить `List[A]` так чтобы гарантировать что он не является пустым?
 
@@ -34,7 +34,6 @@ object RecursiveData {
    *      node - левое и правое дерево (Tree)
    *      leaf - переменная типа A
    */
-
   sealed trait Tree[A]
   case class Node[A](left: Tree[A], right: Tree[A]) extends Tree[A]
   case class Leaf[A]() extends Tree[A]
